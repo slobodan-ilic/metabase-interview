@@ -6,7 +6,7 @@ The code in this repository implements a simple in memory database in Python, ac
 
 ## Approach
 
-The approach taken is to implement all the parts of the database as functional objects. There's no mutable state involved and thus somewhat functional (even though in Python).
+The approach taken is to implement all the parts of the database as functional objects. There's no mutable state involved and thus somewhat functional (even though in Python). The proliferating `@property` serves to demonstrate the fact that the objects are just functional objects, and that they have no state. In production code, this would be `@lazyproperty` which is also idempotent.
 
 ## Implementation
 
