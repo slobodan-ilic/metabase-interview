@@ -8,6 +8,10 @@ The code in this repository implements a simple in memory database in Python, ac
 
 The approach taken is to implement all the parts of the database as functional objects. There's no mutable state involved and thus somewhat functional (even though in Python). The proliferating `@property` serves to demonstrate the fact that the objects are just functional objects, and that they have no state. In production code, this would be `@lazyproperty` which is also idempotent.
 
+## Supported syntax
+
+The supported syntax is pretty simple, allowing for the combination of binary expressions (such as <, >, =, etc.) with logical expressions (which are n-ary). The syntax doesn't support parentheses, but does support multiple logical operator combined with multiple binary operators.
+
 ## Implementation
 
 There are a couple of important classes which implement the functionality:
