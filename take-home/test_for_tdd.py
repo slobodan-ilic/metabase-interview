@@ -38,15 +38,15 @@ class TestParser:
     def test_simple_binary_expr(self):
         expr = Parser("ID < 3").expr
 
-        assert expr._op == "<"
+        assert expr._op_str == "<"
         assert expr._field == "ID"
         assert expr._val == "3"
 
     def test_simple_nary_expr_or(self):
         expr = Parser("True OR False OR True").expr
 
-        assert expr._op == "OR"
-        assert [n._val for n in expr._nodes] == ["True", "False", "True"]
+        assert expr._op_str == "OR"
+        assert [n._val for n in expr._operands] == ["True", "False", "True"]
 
 
 class TestFilter:
@@ -71,7 +71,7 @@ class TestFilter:
         ]
 
     def test_string_contains(self, table_):
-        filter_ = Filter(table_, "name like par")
+        filter_ = Filter(table_, "name LIKE par")
         assert filter_.table == [
             {"id": 1, "owner_id": 2, "name": "parrot"},
         ]
